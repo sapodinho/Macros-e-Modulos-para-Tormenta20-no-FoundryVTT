@@ -27,7 +27,9 @@ if(TokenHpMin > -10){TokenHpMin = -10}
 // Criando a constante com o texto que ira para o chat, escrito em html.
 let content = `
 <h2>Chance de Morte</h2>
-<p>${TokenNome} não está com 0 PV ou menos.</p>
+<div class="tormenta20 chat-card item-card" style="text-align: justify;">
+	<p>${TokenNome} não está com 0 pontos de vida ou menos.</p>
+</div>
 `;
 
 
@@ -43,7 +45,7 @@ if(TokenHp<=0){
 						<div class="dice-tooltip">
 								<div class="dice">
 									<header class="part-header flexrow">
-										<span class="part-formula">1d20</span>
+										<span class="part-formula">1d20 + ${TokenCon}</span>
 										<span class="part-total">${r.total}</span>
 									</header>
 									<ol class="dice-rolls">
@@ -56,8 +58,8 @@ if(TokenHp<=0){
 					</div>
 				</div>
 			<p>Teste de constituição <b>CD 15</b></p>
-			<br>
-			<p>Se falhar perderá <b title="${DadoDeDano}">${rDano.total} pontos de vida</b> por sangramento e continuará sangrando. Caso <b>${TokenNome}</b> chegue a <b  title="-10 ou metade da vida o que for menor">${TokenHpMin}</b> morrerá.</p>
+			<hr>
+			<p>Se falhar perderá <b title="${DadoDeDano}">${rDano.total} pontos de vida</b> por sangramento e continuará sangrando. Caso <b>${TokenNome}</b> chegue a <b title="-10 ou metade da vida o que for menor">${TokenHpMin}</b> morrerá.</p>
 		</div>
 	`;
 };
