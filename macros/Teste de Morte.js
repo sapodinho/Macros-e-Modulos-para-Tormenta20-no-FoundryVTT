@@ -21,7 +21,7 @@ let Status = "ainda tem pontos de vida";
 let Sangramento = ""; 
 
 // Se o HP do personagem for menor que 0 a variável Status terá seu texto atualizado.
-if(TokenHp<0){
+if(TokenHp<=0){
   // Novamente estou presumindo que o personagem irá passar no teste.
   Status = "está inconsciente.";
   Sangramento = "parou de sangrar, mas"; 
@@ -29,14 +29,12 @@ if(TokenHp<0){
   if (rTotal<15){
      // criando variáveis e rolando o dano de sangramento.
      let rDano = new Roll(`1d6`).roll();
-     // criando uma variável para selecionar o valor total na rolagem.
-     let rSangramento = rDano.total;
      // Automatizando o dano recebido por sangramento. Chamando a função na ficha do token.
-     a.applyDamage(rSangramento, 1, 0);
-     Sangramento = `perdeu ${rSangramento} de vida por sangramento e`
+     a.applyDamage(rDano.total, 1, 0);
+     Sangramento = `perdeu ${rDano.total} de vida por sangramento e`
      Status = `está morrendo.`;
      //Atualizando a variável com a vida do personagem.
-     TokenHp = TokenHp - rSangramento;
+     TokenHp = TokenHp - rDano.total;
      };
 
   if (TokenHp<-Math.abs(TokenMaxHp)/2 && TokenHp<-10){
