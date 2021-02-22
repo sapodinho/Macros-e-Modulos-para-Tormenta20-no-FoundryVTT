@@ -27,7 +27,7 @@ if(TokenHpMin > -10){TokenHpMin = -10}
 // Criando a constante com o texto que ira para o chat, escrito em html.
 let content = `
 <h2>Chance de Morte</h2>
-<p><b>${TokenNome}</b> não está com 0 pontos de vida ou menos.</p>
+<p>${TokenNome} não está com 0 PV ou menos.</p>
 `;
 
 
@@ -35,29 +35,31 @@ let content = `
 if(TokenHp<=0){
 	content = 
 	`
-		<h2>Chance de Morte</h2><div class="tormenta20 chat-card item-card">
-			<div class="roll">
-				<div class="dice-roll">
-				<div class="dice-result">
-					<div class="dice-formula">1d20 + ${TokenCon}</div>
-					<div class="dice-tooltip">
-							<div class="dice">
-								<header class="part-header flexrow">
-									<span class="part-formula">1d20</span>
-									<span class="part-total">${r.total}</span>
-								</header>
-								<ol class="dice-rolls">
-									<li class="roll die d20">${r.total}</li>
-								</ol>
-							</div>
-					</div>
-						<h4 class="dice-total">${rResultado}</h4>
+		<h2>Chance de Morte</h2>
+			<div class="tormenta20 chat-card item-card" style="text-align: justify;">
+				<div class="roll">
+					<div class="dice-roll">
+					<div class="dice-result">
+						<div class="dice-formula">1d20 + ${TokenCon}</div>
+						<div class="dice-tooltip">
+								<div class="dice">
+									<header class="part-header flexrow">
+										<span class="part-formula">1d20</span>
+										<span class="part-total">${r.total}</span>
+									</header>
+									<ol class="dice-rolls">
+										<li class="roll die d20">${r.total}</li>
+									</ol>
+								</div>
+						</div>
+							<h4 class="dice-total">${rResultado}</h4>
+						</div>
 					</div>
 				</div>
-			</div>
-		<p>Teste de constituição <b>CD 15</b></p>
-		<br>
-		<p>Se falhar perderá <b>${rDano.total} pontos de vida</b> por sangramento e continuará sangrando. Caso <b>${TokenNome}</b> chegue a <b>${TokenHpMin}</b> morrerá.</p></div>
+			<p>Teste de constituição <b>CD 15</b></p>
+			<br>
+			<p>Se falhar perderá <b title="${DadoDeDano}">${rDano.total} pontos de vida</b> por sangramento e continuará sangrando. Caso <b>${TokenNome}</b> chegue a <b  title="-10 ou metade da vida o que for menor">${TokenHpMin}</b> morrerá.</p>
+		</div>
 	`;
 };
 
