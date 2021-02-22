@@ -40,7 +40,6 @@ if(TokenHp<=0){
 				<div class="roll">
 					<div class="dice-roll">
 					<div class="dice-result">
-						<div class="dice-formula">1d20 + ${TokenCon}</div>
 						<div class="dice-tooltip">
 								<div class="dice">
 									<header class="part-header flexrow">
