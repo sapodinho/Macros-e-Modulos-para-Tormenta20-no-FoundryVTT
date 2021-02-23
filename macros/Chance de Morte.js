@@ -28,7 +28,7 @@ if(TokenHpMin > -10){TokenHpMin = -10}
 let content = `
 <h2>Chance de Morte</h2>
 <div class="tormenta20 chat-card item-card" style="text-align: justify;">
-	<p>${TokenNome} não está com 0 pontos de vida ou menos.</p>
+	<p>${TokenNome} não está com 0 PV ou menos.</p>
 </div>
 `;
 
@@ -38,6 +38,7 @@ if(TokenHp<=0){
 	content = 
 	`
 		<h2>Chance de Morte</h2>
+			<h4 style="text-align: center;">${TokenNome} (${TokenHp} PV)</h4>
 			<div class="tormenta20 chat-card item-card" style="text-align: justify;">
 				<div class="roll">
 					<div class="dice-roll">
@@ -57,9 +58,9 @@ if(TokenHp<=0){
 						</div>
 					</div>
 				</div>
-			<p>Teste de constituição <b>CD 15</b></p>
+			<p style="text-align: center;"><b>Teste de Constituição (CD 15)</b></p>
 			<hr>
-			<p>Se falhar perderá <b title="${DadoDeDano}">${rDano.total} pontos de vida</b> por sangramento e continuará sangrando. Caso <b>${TokenNome}</b> chegue a <b title="-10 ou metade da vida o que for menor">${TokenHpMin}</b> morrerá.</p>
+			<p>Se falhar perderá <b title="${DadoDeDano}">${rDano.total} PV</b> por sangramento e continuará sangrando. Caso <b>${TokenNome}</b> chegue a <b title="-10 PV ou metade da vida o que for menor.">${TokenHpMin} PV</b> morrerá.</p>
 		</div>
 	`;
 };
